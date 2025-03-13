@@ -1,0 +1,1043 @@
+/**
+ * CINEMATICVISION - 映像編集ポートフォリオサイト用スタイルシート
+ * 
+ * このスタイルシートは、動画編集者のポートフォリオサイトのデザインを定義しています。
+ * 暗い背景に赤系のアクセントカラーを使用し、モダンでプロフェッショナルな印象を与えます。
+ * レスポンシブデザインを採用し、PC、タブレット、スマートフォンでの表示に対応しています。
+ */
+
+/* ===== 基本設定 ===== */
+:root {
+    /* カラーパレット */
+    --color-primary: #e50914; /* 赤系アクセントカラー */
+    --color-secondary: #141414; /* 暗めの背景色 */
+    --color-dark: #0a0a0a; /* より暗い背景色 */
+    --color-light: #f5f5f5; /* 明るいテキスト色 */
+    --color-gray: #717171; /* グレーのテキスト色 */
+    --color-accent: #e50914; /* アクセントカラー（ボタン等） */
+    
+    /* フォントファミリー */
+    --font-primary: 'Montserrat', 'Noto Sans JP', sans-serif;
+    --font-secondary: 'Noto Sans JP', sans-serif;
+    
+    /* トランジション */
+    --transition-slow: 0.5s ease;
+    --transition-normal: 0.3s ease;
+    --transition-fast: 0.2s ease;
+
+    /* アニメーション */
+    --fade-transition: all 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-primary);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--color-light);
+    background-color: var(--color-dark);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 20px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+a {
+    color: var(--color-light);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+a:hover {
+    color: var(--color-primary);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.section-title {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    text-align: center;
+    position: relative;
+}
+
+.section-title:after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10px;
+    width: 60px;
+    height: 3px;
+    background-color: var(--color-primary);
+}
+
+/* ===== ヘッダー ===== */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 0;
+    z-index: 1000;
+    background-color: rgba(10, 10, 10, 0.9);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    transition: all var(--transition-normal);
+}
+
+.site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.logo-cinematic {
+    color: var(--color-light);
+}
+
+.logo-vision {
+    color: var(--color-primary);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    font-size: 16px;
+    font-weight: 500;
+    position: relative;
+}
+
+.nav-links a:after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-primary);
+    transition: width var(--transition-normal);
+}
+
+.nav-links a:hover:after {
+    width: 100%;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-light);
+    margin: 5px 0;
+    transition: var(--transition-fast);
+}
+
+/* ===== ヒーローセクション ===== */
+.hero-section {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(10, 10, 10, 0.85) 0%, rgba(10, 10, 10, 0.6) 100%);
+    z-index: 1;
+}
+
+.youtube-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.youtube-bg iframe {
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* ユーザーがビデオを操作できないように */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 800px;
+    padding: 0 20px;
+    margin-top: 60px; /* ヘッダーの高さ分調整 */
+}
+
+.hero-content .fade-in {
+    transition-delay: calc(var(--item-index) * 0.3s);
+}
+
+.main-title {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: var(--color-light);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    transform: translateY(30px);
+    opacity: 0;
+}
+
+.main-title.active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.sub-text {
+    font-size: 20px;
+    margin-bottom: 30px;
+    color: var(--color-light);
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.sub-text.active {
+    opacity: 0.9;
+    transform: translateY(0);
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: 600;
+    transition: all var(--transition-normal);
+    border: 2px solid var(--color-primary);
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.cta-button.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.cta-button:hover {
+    background-color: transparent;
+    color: var(--color-primary);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(229, 9, 20, 0.3);
+}
+
+/* スクロール促進アニメーション */
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: scrollIndicate 2s infinite;
+}
+
+.scroll-indicator i {
+    color: var(--color-light);
+    font-size: 30px;
+}
+
+@keyframes scrollIndicate {
+    0% {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateX(-50%) translateY(10px);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+    }
+}
+
+/* ===== 作品集セクション ===== */
+.works-section {
+    padding: 100px 0;
+    background-color: var(--color-secondary);
+}
+
+.filter-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.filter-button {
+    padding: 8px 20px;
+    margin: 0 10px 10px;
+    background: transparent;
+    border: 1px solid var(--color-gray);
+    color: var(--color-light);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    border-radius: 30px;
+}
+
+.filter-button:hover,
+.filter-button.active {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.works-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.work-item {
+    position: relative;
+    height: 500px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    transition: transform var(--transition-normal);
+}
+
+.work-item:hover {
+    transform: translateY(-10px);
+}
+
+.work-video {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.youtube-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.youtube-container iframe {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.work-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
+    transition: transform var(--transition-normal);
+    transform: translateY(70%);
+}
+
+.work-item:hover .work-info {
+    transform: translateY(0);
+}
+
+.work-info h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.work-info p {
+    font-size: 14px;
+    margin-bottom: 15px;
+    opacity: 0.8;
+}
+
+.play-button {
+    padding: 8px 15px;
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all var(--transition-normal);
+}
+
+.play-button:hover {
+    background-color: var(--color-light);
+    color: var(--color-primary);
+}
+
+/* ===== サービスセクション ===== */
+.services-section {
+    padding: 100px 0;
+    background-color: var(--color-dark);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background-color: var(--color-secondary);
+    padding: 40px 30px;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform var(--transition-normal);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+}
+
+.service-icon {
+    font-size: 50px;
+    color: var(--color-primary);
+    margin-bottom: 25px;
+}
+
+.service-card h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.service-card p {
+    font-size: 15px;
+    color: var(--color-gray);
+}
+
+/* ===== プロフィールセクション ===== */
+.profile-section {
+    padding: 100px 0;
+    background-color: var(--color-secondary);
+}
+
+.profile-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 50px;
+}
+
+.profile-image {
+    flex: 0 0 40%;
+}
+
+.profile-image img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.profile-info {
+    flex: 1;
+}
+
+.profile-info h3 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.profile-title {
+    font-size: 18px;
+    color: var(--color-primary);
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.profile-description {
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+.skills h4 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.skills ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+.skills li {
+    padding: 8px 15px;
+    background-color: rgba(229, 9, 20, 0.1);
+    border: 1px solid var(--color-primary);
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--color-secondary);
+    border-radius: 50%;
+    color: var(--color-light);
+    transition: all var(--transition-normal);
+    font-size: 18px;
+}
+
+.social-icon:hover {
+    background-color: var(--color-primary);
+    color: var(--color-light);
+}
+
+/* ===== お問い合わせセクション ===== */
+.contact-section {
+    padding: 100px 0;
+    background-color: var(--color-dark);
+}
+
+.contact-container {
+    display: flex;
+    gap: 50px;
+}
+
+.contact-info {
+    flex: 1;
+}
+
+.contact-info h3 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.info-item i {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(229, 9, 20, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    color: var(--color-primary);
+    font-size: 18px;
+}
+
+.contact-form {
+    flex: 1;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    color: var(--color-light);
+    font-family: var(--font-primary);
+    transition: border-color var(--transition-fast);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+.submit-button {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color var(--transition-normal);
+}
+
+.submit-button:hover {
+    background-color: #c20812;
+}
+
+/* ===== フッター ===== */
+.site-footer {
+    background-color: var(--color-secondary);
+    padding: 60px 0 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.footer-logo {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: var(--color-gray);
+    transition: color var(--transition-fast);
+}
+
+.footer-links a:hover {
+    color: var(--color-primary);
+}
+
+.footer-social {
+    display: flex;
+    gap: 15px;
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--color-gray);
+    font-size: 14px;
+}
+
+/* ===== モーダル ===== */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 2000;
+    overflow: auto;
+}
+
+.modal-content {
+    position: relative;
+    width: 80%;
+    max-width: 1000px;
+    margin: 5% auto;
+    background-color: var(--color-secondary);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    color: var(--color-light);
+    cursor: pointer;
+    z-index: 100;
+}
+
+.modal-video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 アスペクト比 */
+    height: 0;
+    overflow: hidden;
+}
+
+.modal-video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* ===== レスポンシブデザイン ===== */
+@media (max-width: 1024px) {
+    .main-title {
+        font-size: 40px;
+    }
+    
+    .works-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .site-header {
+        padding: 15px 0;
+    }
+    
+    .nav-links {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        flex-direction: column;
+        background-color: rgba(10, 10, 10, 0.95);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        padding: 20px 0;
+    }
+    
+    .nav-links.active {
+        left: 0;
+    }
+    
+    .nav-links li {
+        margin: 15px 0;
+    }
+    
+    .hamburger {
+        display: block;
+    }
+    
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    
+    .main-title {
+        font-size: 32px;
+    }
+    
+    .sub-text {
+        font-size: 18px;
+    }
+    
+    .profile-content {
+        flex-direction: column;
+    }
+    
+    .profile-image {
+        flex: 0 0 100%;
+        margin-bottom: 30px;
+    }
+    
+    .contact-container {
+        flex-direction: column;
+    }
+    
+    .contact-info {
+        margin-bottom: 40px;
+    }
+}
+
+@media (max-width: 576px) {
+    .works-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .logo {
+        font-size: 24px;
+    }
+    
+    .section-title {
+        font-size: 28px;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-logo, .footer-links, .footer-social {
+        margin-bottom: 30px;
+    }
+    
+    .footer-social {
+        justify-content: center;
+    }
+    
+    .modal-content {
+        width: 95%;
+    }
+}
+
+/* ===== スクロールアニメーション ===== */
+.fade-in {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: var(--fade-transition);
+    will-change: opacity, transform;
+    backface-visibility: hidden;
+}
+
+.fade-in.active {
+    opacity: 1;
+    transform: translateY(0);
+    animation: fadeInPulse 0.8s ease-out;
+}
+
+.fade-in-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: var(--fade-transition);
+    will-change: opacity, transform;
+    backface-visibility: hidden;
+}
+
+.fade-in-left.active {
+    opacity: 1;
+    transform: translateX(0);
+    animation: slideInLeftPulse 0.8s ease-out;
+}
+
+.fade-in-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: var(--fade-transition);
+    will-change: opacity, transform;
+    backface-visibility: hidden;
+}
+
+.fade-in-right.active {
+    opacity: 1;
+    transform: translateX(0);
+    animation: slideInRightPulse 0.8s ease-out;
+}
+
+@keyframes fadeInPulse {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    70% {
+        opacity: 1;
+        transform: translateY(-5px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeftPulse {
+    0% {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+    70% {
+        opacity: 1;
+        transform: translateX(5px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRightPulse {
+    0% {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+    70% {
+        opacity: 1;
+        transform: translateX(-5px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.stagger-item {
+    transition-delay: calc(var(--item-index) * 0.1s);
+}
+
+/* ===== パララックスセクション ===== */
+.parallax-section {
+    position: relative;
+    height: 70vh;
+    overflow: hidden;
+    background-color: var(--color-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.parallax-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 1;
+    opacity: 0.7;
+    transition: transform 0.5s ease;
+    will-change: transform;
+    filter: brightness(0.8) contrast(1.2);
+}
+
+.parallax-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 40px 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+    transform: translateY(50px) scale(0.95);
+    opacity: 0;
+    transition: var(--fade-transition);
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+}
+
+.parallax-content.active {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    animation: contentPulse 1.2s ease-out;
+}
+
+@keyframes contentPulse {
+    0% {
+        opacity: 0;
+        transform: translateY(50px) scale(0.95);
+    }
+    70% {
+        opacity: 1;
+        transform: translateY(-10px) scale(1.02);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.parallax-title {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    color: var(--color-light);
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.parallax-text {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: var(--color-light);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+    .parallax-section {
+        height: 60vh;
+    }
+    
+    .parallax-title {
+        font-size: 2.2rem;
+    }
+    
+    .parallax-text {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .parallax-section {
+        height: 50vh;
+    }
+    
+    .parallax-title {
+        font-size: 1.8rem;
+    }
+} 

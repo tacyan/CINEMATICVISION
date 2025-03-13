@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CINEMATICVISION - 映像編集ポートフォリオ</title>
+    <meta name="description" content="クリエイティブな映像編集であなたのビジョンを実現するプロフェッショナル">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- ヘッダー部分 -->
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">
+                <a href="#home">
+                    <span class="logo-cinematic">CINEMATIC</span><span class="logo-vision">VISION</span>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-links">
+                    <li><a href="#home">ホーム</a></li>
+                    <li><a href="#works">作品</a></li>
+                    <li><a href="#services">サービス</a></li>
+                    <li><a href="#profile">プロフィール</a></li>
+                    <li><a href="#contact">お問い合わせ</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- トップセクション -->
+    <section class="hero-section">
+        <div class="video-container">
+            <div class="overlay"></div>
+            <div class="youtube-bg" id="youtube-bg"></div>
+        </div>
+        <div class="hero-content">
+            <h1 class="main-title fade-in active" style="--item-index: 0">映像編集の専門家</h1>
+            <p class="sub-text fade-in active" style="--item-index: 1">クリエイティブなビジョンを形にする。あなたの物語を映像で語ります。</p>
+            <a href="#contact" class="cta-button fade-in active" style="--item-index: 2">お問い合わせ</a>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- 作品集セクション -->
+    <section id="works" class="works-section">
+        <div class="container">
+            <h2 class="section-title fade-in">作品集</h2>
+            <div class="filter-container fade-in">
+                <button class="filter-button active" data-filter="all">すべて</button>
+                <button class="filter-button" data-filter="cm">CM</button>
+                <button class="filter-button" data-filter="music">ミュージックビデオ</button>
+                <button class="filter-button" data-filter="short">ショートフィルム</button>
+            </div>
+            <div class="works-grid">
+                <div class="work-item fade-in-left" data-category="cm" style="--item-index: 0;">
+                    <div class="work-video">
+                        <div class="youtube-container" data-video-id="bTqVqk7FSmY"></div>
+                    </div>
+                    <div class="work-info">
+                        <h3>企業プロモーション</h3>
+                        <p>企業ブランドの世界観を表現した30秒CM</p>
+                        <button class="play-button"><i class="fas fa-play"></i> 再生</button>
+                    </div>
+                </div>
+                <div class="work-item fade-in" data-category="music" style="--item-index: 1;">
+                    <div class="work-video">
+                        <div class="youtube-container" data-video-id="9bZkp7q19f0"></div>
+                    </div>
+                    <div class="work-info">
+                        <h3>アーティストMV</h3>
+                        <p>感情的なストーリーテリングと視覚効果</p>
+                        <button class="play-button"><i class="fas fa-play"></i> 再生</button>
+                    </div>
+                </div>
+                <div class="work-item fade-in-right" data-category="short" style="--item-index: 2;">
+                    <div class="work-video">
+                        <div class="youtube-container" data-video-id="uD4izuDMUQA"></div>
+                    </div>
+                    <div class="work-info">
+                        <h3>ショートフィルム</h3>
+                        <p>独創的な映像表現による実験的作品</p>
+                        <button class="play-button"><i class="fas fa-play"></i> 再生</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- サービスセクション -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <h2 class="section-title fade-in">サービス</h2>
+            <div class="services-grid">
+                <div class="service-card fade-in" style="--item-index: 0;">
+                    <div class="service-icon">
+                        <i class="fas fa-film"></i>
+                    </div>
+                    <h3>映像編集</h3>
+                    <p>素材を最適な形でつなぎ合わせ、ストーリーテリングと視覚的リズムを作り出します。</p>
+                </div>
+                <div class="service-card fade-in" style="--item-index: 1;">
+                    <div class="service-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>カラーグレーディング</h3>
+                    <p>映像の色調を調整し、作品のトーンや雰囲気を演出します。</p>
+                </div>
+                <div class="service-card fade-in" style="--item-index: 2;">
+                    <div class="service-icon">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h3>VFXとモーショングラフィックス</h3>
+                    <p>特殊効果やアニメーション要素を追加し、視覚的インパクトを高めます。</p>
+                </div>
+                <div class="service-card fade-in" style="--item-index: 3;">
+                    <div class="service-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3>音響デザイン</h3>
+                    <p>映像に合わせた音響効果やBGMの選定・編集で、作品の没入感を深めます。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- プロフィールセクション -->
+    <section id="profile" class="profile-section">
+        <div class="container">
+            <h2 class="section-title fade-in">プロフィール</h2>
+            <div class="profile-content">
+                <div class="profile-image fade-in-left">
+                    <img src="https://images.unsplash.com/photo-1618004912476-29818d81ae2e?q=80&w=1000" alt="プロフィール写真">
+                </div>
+                <div class="profile-info fade-in-right">
+                    <h3>辰原 誠一（たつはら せいいち）</h3>
+                    <p class="profile-title">映像編集者 / ビジュアルストーリーテラー</p>
+                    <p class="profile-description">
+                        10年の経験を持つプロフェッショナル映像編集者です。大手広告代理店での勤務経験を活かし、
+                        CM、MV、ドキュメンタリーなど様々なジャンルの映像制作に携わってきました。
+                        クライアントのビジョンを理解し、視聴者の心に響く作品づくりを心がけています。
+                    </p>
+                    <div class="skills">
+                        <h4>スキル</h4>
+                        <ul>
+                            <li>Adobe Premiere Pro</li>
+                            <li>After Effects</li>
+                            <li>DaVinci Resolve</li>
+                            <li>Final Cut Pro</li>
+                            <li>Photoshop</li>
+                        </ul>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-vimeo-v"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- パララックスセクション -->
+    <section id="immersive" class="parallax-section">
+        <div class="parallax-bg" style="background-image: url('https://images.unsplash.com/photo-1536240478700-b869070f9279?q=80&w=2000');"></div>
+        <div class="parallax-content">
+            <h2 class="parallax-title">映像の力で物語を紡ぐ</h2>
+            <p class="parallax-text">映像編集は単なる技術ではなく、感情と物語を伝えるアート。私たちは最新の技術と創造性を駆使して、あなたのビジョンを形にします。一つ一つのフレームに魂を込め、視聴者の心に残る作品を創り上げます。</p>
+        </div>
+    </section>
+
+    <!-- お問い合わせセクション -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title fade-in">お問い合わせ</h2>
+            <div class="contact-container">
+                <div class="contact-info fade-in-left">
+                    <h3>お気軽にご連絡ください</h3>
+                    <p>あなたのプロジェクトについてのご相談をお待ちしています。</p>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>info@cinematicvision.jp</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <p>03-1234-5678</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>東京都渋谷区〇〇 1-2-3</p>
+                    </div>
+                </div>
+                <div class="contact-form fade-in-right">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">お名前</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">メールアドレス</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">件名</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">メッセージ</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-button">送信する</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-cinematic">CINEMATIC</span><span class="logo-vision">VISION</span>
+                </div>
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="#home">ホーム</a></li>
+                        <li><a href="#works">作品</a></li>
+                        <li><a href="#services">サービス</a></li>
+                        <li><a href="#profile">プロフィール</a></li>
+                        <li><a href="#contact">お問い合わせ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-vimeo-v"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 CINEMATICVISION. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- モーダル -->
+    <div class="modal" id="videoModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-video-container">
+                <div id="modal-video"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
